@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     public UnityEngine.UI.Text scoreboard;
     int score;
     bool powered;
+    float originalXScale;
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         scoreboard.text = score.ToString();
         powered = false;
+        originalXScale = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -46,9 +48,9 @@ public class PlayerController : MonoBehaviour
         if (!powered)
         {
             powered = true;
-            transform.localScale = new Vector3(4f, 1f, 1f);
+            transform.localScale = new Vector3(originalXScale * 2f, 1f, 1f);
             yield return new WaitForSecondsRealtime(6f);
-            transform.localScale = new Vector3(2f, 1f, 1f);
+            transform.localScale = new Vector3(originalXScale, 1f, 1f);
             powered = false;
         }
     }
