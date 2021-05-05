@@ -33,15 +33,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Power"))
         {
-            transform.localScale = new Vector3(4f, 1f, 1f);
-            StartCoroutine(PowerDown());
+            StartCoroutine(PowerUp());
             Destroy(other.gameObject);
         }
         scoreboard.text = score.ToString();
     }
 
-    IEnumerator PowerDown()
+    IEnumerator PowerUp()
     {
+        transform.localScale = new Vector3(4f, 1f, 1f);
         yield return new WaitForSecondsRealtime(6f);
         transform.localScale = new Vector3(2f, 1f, 1f);
     }
