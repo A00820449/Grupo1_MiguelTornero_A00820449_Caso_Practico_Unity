@@ -20,19 +20,18 @@ public class ElementSpawner : MonoBehaviour
 
     IEnumerator SpawnElements()
     {
-        int rockCount = 0;
+        int randomChance;
         while (true)
         {
             yield return new WaitForSecondsRealtime(1f);
-            if (rockCount < 15)
+            randomChance = Random.Range(1, 16);
+            if (randomChance > 1)
             {
-                Instantiate(rockPrefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.Euler(0f, 0f, 0f));
-                rockCount++;
+                Instantiate(rockPrefab, new Vector3(Random.Range(-8.0f, 8.0f), 6f, 0f), Quaternion.Euler(0f, 0f, 0f));
             }
             else
             {
-                Instantiate(powerPrefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.Euler(0f, 0f, 0f));
-                rockCount = 0;
+                Instantiate(powerPrefab, new Vector3(Random.Range(-8.0f, 8.0f), 6f, 0f), Quaternion.Euler(0f, 0f, 0f));
             }
         }
     }
