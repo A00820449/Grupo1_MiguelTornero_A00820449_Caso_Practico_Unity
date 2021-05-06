@@ -62,9 +62,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Debuff()
     {
+        Debug.Log("Debuff Start");
         speed = speed / 2;
         yield return new WaitForSeconds(5f);
         speed = speed * 2;
+        Debug.Log("Debuff End");
     }
 
     public void LoseHealth(int i = 1)
