@@ -23,7 +23,7 @@ public class ElementSpawner : MonoBehaviour
         int randomChance;
         while (true)
         {
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
             randomChance = Random.Range(1, 16);
             if (randomChance > 1)
             {
