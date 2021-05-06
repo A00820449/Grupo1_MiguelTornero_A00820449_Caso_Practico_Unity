@@ -8,12 +8,16 @@ public class PlayerController : MonoBehaviour
     float xInput;
     public float speed;
     public UnityEngine.UI.Text scoreboard;
+    public UnityEngine.UI.Text healthcount;
     int score;
+    int health;
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         scoreboard.text = score.ToString();
+        health = 3;
+        healthcount.text = health.ToString();
     }
 
     // Update is called once per frame
@@ -44,5 +48,11 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * 2f, 1f, 1f);
         yield return new WaitForSecondsRealtime(6f);
         transform.localScale = new Vector3(transform.localScale.x / 2f, 1f, 1f);
+    }
+
+    public void LoseHealth(int i = 1)
+    {
+        health -= i;
+        healthcount.text = health.ToString();
     }
 }

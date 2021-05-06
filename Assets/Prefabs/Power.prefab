@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2771898824630324540}
   - component: {fileID: 2771898824630324543}
   - component: {fileID: 2771898824630324542}
-  - component: {fileID: 2771898824630324546}
   - component: {fileID: 4911987975073657719}
+  - component: {fileID: 9190210707773388561}
   m_Layer: 0
   m_Name: Power
   m_TagString: Power
@@ -97,19 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2771898824630324546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2771898824630324537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512345e409b8a384a8c3f726aab2ec6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!54 &4911987975073657719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9190210707773388561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2771898824630324537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1160729a1b537c439279dc0125a8ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
