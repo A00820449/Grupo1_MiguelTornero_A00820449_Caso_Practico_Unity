@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
         scoreboard.text = score.ToString();
         health = 3;
         healthcount.text = health.ToString();
+        speed = 15f;
+        transform.position = new Vector3(0f, -3.5f, 0f);
+        transform.localScale = new Vector3(2f, 1f, 1f);
     }
 
     // Update is called once per frame
@@ -42,6 +45,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerUp());
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("Meteorite"))
+        {
+            StartCoroutine(Debuff());
+            Destroy(other.gameObject);
+        }
         scoreboard.text = score.ToString();
     }
 
@@ -50,6 +58,13 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * 2f, 1f, 1f);
         yield return new WaitForSeconds(6f);
         transform.localScale = new Vector3(transform.localScale.x / 2f, 1f, 1f);
+    }
+
+    IEnumerator Debuff()
+    {
+        speed = speed / 2;
+        yield return new WaitForSeconds(5f);
+        speed = speed * 2;
     }
 
     public void LoseHealth(int i = 1)
@@ -70,10 +85,7 @@ public class PlayerController : MonoBehaviour
 
     public void Reset()
     {
-        health = 3;
-        healthcount.text = health.ToString();
-        transform.position = new Vector3(0f, -3.5f, 0f);
         StopAllCoroutines();
-        transform.localScale = new Vector3(2f, 1f, 1f);
+        Start();
     }
 }
